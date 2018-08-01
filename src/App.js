@@ -7,23 +7,28 @@ import './App.css'
 
 class BooksApp extends React.Component {
   state = {
-books: []
+    books: []
     
   }
 
 componentDidMount() {
   BooksAPI.getAll().then((books) => {
-    this.setState({books})
+    this.setState({ books })
     })
 }
 
+updateBooks = (book, shelf) => {
+  BooksAPI.update(book, shelf);
+}
+
   render() {
-    console.log(this.state.books)
+    console.log(this.state.books);
     return (
       <div className="app">
         <Route exact path="/" render={() => (
         <ListBooks 
           books={this.state.books}
+        updateBooks={this.updateBooks}
         />
       )}           
        />
