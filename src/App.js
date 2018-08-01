@@ -11,13 +11,14 @@ books: []
     
   }
 
-ComponentDidMount() {
+componentDidMount() {
   BooksAPI.getAll().then((books) => {
     this.setState({books})
     })
 }
 
   render() {
+    console.log(this.state.books)
     return (
       <div className="app">
         <Route exact path="/" render={() => (
