@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import Shelf from './Shelf'
+//import * as BooksAPI from './BooksAPI'
 import { Link } from 'react-router-dom'
 
 class ListBooks extends Component {
   
-    state = {
+  state = {
+    
       bookShelves: [
         {
             "id":"currentlyReading",
@@ -19,10 +21,13 @@ class ListBooks extends Component {
             "name":"Read"
           }
       ]
-   }
+}
+      //books : []
+   
+  
 
   render() {
-
+  console.log(this.props.books)
       return (
            <div className="list-books">
           
@@ -40,7 +45,10 @@ class ListBooks extends Component {
                         <div key={bookShelf.id}>
               <h2 className="bookshelf-title">{bookShelf.name}</h2>
               <Shelf 
-                //bookShelves={this.state.bookShelves}
+                books={this.props.books}
+                bookShelves={this.state.bookShelves}
+                updateBooks={this.props.updateBooks}
+                bookShelf={bookShelf}
               />
                 </div>
 
