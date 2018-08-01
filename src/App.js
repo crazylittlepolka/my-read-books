@@ -11,14 +11,29 @@ books: []
     
   }
 
+ComponentDidMount() {
+  BooksAPI.getAll().then((books) => {
+    this.setState({books})
+    })
+}
+
   render() {
     return (
       <div className="app">
-        {this.state.showSearchPage ? (
-      <Search />
-        ) : (
-    <ListBooks />
-        )}
+        <Route exact path="/" render={() => (
+        <ListBooks 
+          books={this.state.books}
+        />
+      )}           
+       />
+       
+        <Route path="/search" render={({history}) => (
+          <Search 
+
+          />
+          )}
+          />
+
       </div>
     )
   }

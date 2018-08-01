@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import Shelf from './Shelf'
+import { Link } from 'react-router-dom'
 
 class ListBooks extends Component {
+  
     state = {
-      bookShelfs: [
+      bookShelves: [
         {
             "id":"currentlyReading",
             "name":"Currently Reading"
@@ -20,7 +22,7 @@ class ListBooks extends Component {
    }
 
   render() {
-      console.log(this.state.bookShelfs)
+
       return (
            <div className="list-books">
           
@@ -29,19 +31,25 @@ class ListBooks extends Component {
             </div>
           
             <div className="list-books-content">
-                
+              
+                 
+                  
                 {
-                this.state.bookShelfs.map((bookShelf) => (
-                <div key={bookShelf.id}>
-              <Shelf bookShelfs={this.state.bookShelfs} />
+                this.state.bookShelves.map((bookShelf) => (
+                <div key={bookShelf.id} className="bookshelf">
+                        <div key={bookShelf.id}>
+              <h2 className="bookshelf-title">{bookShelf.name}</h2>
+              <Shelf 
+                //bookShelves={this.state.bookShelves}
+              />
                 </div>
+
+            </div>
                 ))
                 }
-            
-                
         
             <div className="open-search">
-              <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
+              <Link to='/search'>Add a book</Link>
             </div>
       
           </div>
