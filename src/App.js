@@ -28,7 +28,7 @@ updateBooks = (book, shelf) => {
         <Route exact path="/" render={() => (
         <ListBooks 
           books={this.state.books}
-        updateBooks={this.updateBooks}
+          updateBooks={this.updateBooks}
         />
       )}           
        />
