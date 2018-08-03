@@ -55,7 +55,7 @@ class Search extends Component {
           {
                       this.state.matchingBooks
                         .map( (book, id) => {
-                          let shelf 
+                          let bookShelf 
                            return (
                             <Book
                               key={id}
@@ -63,7 +63,7 @@ class Search extends Component {
                               updateBooks={this.updateBooks}
                               books={this.state.matchingBooks}
                               shelves={this.props.shelves}
-                              shelf={shelf}
+                              bookShelf={bookShelf}//
                              />
                             )
 

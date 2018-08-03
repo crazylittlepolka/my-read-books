@@ -39,7 +39,9 @@ updateBooks = (book, shelf) => {
        
         <Route path="/search" render={({history}) => (
           <Search 
-
+            updateBooks={this.updateBooks}
+            books={this.state.books}
+            book={this.state.book}
           />
           )}
           />
