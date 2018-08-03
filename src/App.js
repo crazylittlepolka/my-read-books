@@ -19,6 +19,10 @@ componentDidMount() {
 
 updateBooks = (book, shelf) => {
   BooksAPI.update(book, shelf);
+
+    BooksAPI.getAll().then((books) => {
+    this.setState({ books })
+    })
 }
 
   render() {
@@ -28,7 +32,7 @@ updateBooks = (book, shelf) => {
         <Route exact path="/" render={() => (
         <ListBooks 
           books={this.state.books}
-        updateBooks={this.updateBooks}
+          updateBooks={this.updateBooks}
         />
       )}           
        />
