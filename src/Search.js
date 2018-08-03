@@ -55,15 +55,15 @@ class Search extends Component {
           {
                       this.state.matchingBooks
                         .map( (book, id) => {
-                          let shelf = 'none'
+                          let shelf 
                            return (
                             <Book
                               key={id}
                               book={ book }
                               updateBooks={this.updateBooks}
                               books={this.state.matchingBooks}
-                              bookShelves={this.props.bookShelves}
-                              bookShelf={shelf}
+                              shelves={this.props.shelves}
+                              shelf={shelf}
                              />
                             )
 

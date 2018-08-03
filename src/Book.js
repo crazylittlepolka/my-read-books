@@ -1,14 +1,32 @@
 import React, { Component } from 'react'
 
 class Book extends Component {
+  //
+state = {
+    shelf: 'none'
+}
+
+componentDidMount() {
+  const { book } = this.props;
+  if(book.shelf) {
+    this.setState({ shelf: book.state})
+  }
+}
+  //
   render() {
+
       return (                        
                   <div className="book">
                           <div className="book-top">
                             <div className="book-cover" style={{ width: 128, height: 174, backgroundImage: `url("${this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : ''}")` }}></div>
                             <div className="book-shelf-changer">
                               <select
-                                value={this.props.bookShelf.id}
+                                value={this.state.shelf}
+                                ///value={
+                                  //this.props.shelf
+                                  //? this.props.shelf.id
+                                 // : 'none'
+                                //}
                                 onChange={e => this.props.updateBooks(
                                   this.props.book, e.target.value)}
                               >

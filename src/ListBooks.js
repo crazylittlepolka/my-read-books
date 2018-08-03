@@ -7,7 +7,7 @@ class ListBooks extends Component {
   
   state = {
     
-      bookShelves: [
+      shelves: [
         {
             "id":"currentlyReading",
             "name":"Currently Reading"
@@ -40,15 +40,15 @@ class ListBooks extends Component {
                  
                   
                 {
-                this.state.bookShelves.map((bookShelf) => (
-                <div key={bookShelf.id} className="bookshelf">
-                        <div key={bookShelf.id}>
-              <h2 className="bookshelf-title">{bookShelf.name}</h2>
+                this.state.shelves.map((shelf) => (
+                <div key={shelf.id} className="bookshelf">
+                        <div key={shelf.id}>
+              <h2 className="bookshelf-title">{shelf.name}</h2>
               <Shelf 
                 books={this.props.books}
-                bookShelves={this.state.bookShelves}
+                shelves={this.state.shelves}
                 updateBooks={this.props.updateBooks}
-                bookShelf={bookShelf}
+                shelf={shelf}
               />
                 </div>
 
