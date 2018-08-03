@@ -60,7 +60,7 @@ class Search extends Component {
                             <Book
                               key={id}
                               book={ book }
-                              onUpdateBook={(book, shelf) =>this.updateBooks(book, shelf)}
+                              updateBooks={this.updateBooks}
                               books={this.state.matchingBooks}
                               bookShelves={this.props.bookShelves}
                               bookShelf={shelf}
