@@ -20,29 +20,30 @@ componentDidMount() {
 updateBooks = (book, shelf) => {
   BooksAPI.update(book, shelf);
 
-    BooksAPI.getAll().then((books) => {
+  BooksAPI.getAll().then((books) => {
     this.setState({ books })
-    })
+  })
 }
 
   render() {
-    console.log(this.state.books);
+    
     return (
       <div className="app">
         <Route exact path="/" render={() => (
-        <ListBooks 
-          books={this.state.books}
-          updateBooks={this.updateBooks}
+            <ListBooks 
+              books={this.state.books}
+              updateBooks={this.updateBooks}
+            />
+          )}           
         />
-      )}           
-       />
        
         <Route path="/search" render={({history}) => (
-          <Search 
-
-          />
+            <Search 
+              books={this.state.books}
+              updateBooks={this.updateBooks}              
+            />
           )}
-          />
+        />
 
       </div>
     )
