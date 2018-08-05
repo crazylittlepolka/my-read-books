@@ -23,7 +23,11 @@ class ListBooks extends Component {
       ]
 }
 
-      
+  anyFunction = () => {
+    const booksFromListBooks = this.state.books;
+
+    this.props.sendingData(booksFromListBooks);
+  }
    
   
 
@@ -47,6 +51,7 @@ class ListBooks extends Component {
               <h2 className="bookshelf-title">{bookShelf.name}</h2>
               <Shelf 
                 books={this.props.books}
+                book={this.props.book}
                 bookShelves={this.state.bookShelves}
                 updateBooks={this.props.updateBooks}
                 bookShelf={bookShelf}

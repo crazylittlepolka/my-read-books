@@ -3,11 +3,14 @@ import * as BooksAPI from './BooksAPI'
 
 class Book extends Component {
   showShelf = e => {
-    //this.props.updateBooks
+    //this.updateBooks
     //(this.props.book, e.target.value)
-    BooksAPI.update(this.props.book,e.target.value);
-    this.props.book.shelf = e.target.value;
-    this.props.updateBooks(this.props.book);
+  BooksAPI.update(this.props.book,e.target.value);
+  BooksAPI.getAll(this.props.books).then((books) => ({books})
+    )
+    //this.props.book.shelf = e.target.value;
+    //this.props.updateBooks(this.props.book, e.target.value);
+
   }
 
   render() {
@@ -18,10 +21,10 @@ class Book extends Component {
                             <div className="book-shelf-changer">
                               
                               <select
+                                ///onChange={this.showShelf}
                                 onChange={this.showShelf}
-        
                                 value={
-                                  this.props.book.shelf
+                                  this.props.shelfId
                                   ? this.props.shelfId
                                   : this.props.defaultShelf
 

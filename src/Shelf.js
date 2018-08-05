@@ -17,7 +17,7 @@ class Shelf extends Component {
                           <li key={book.id}>
                             <Book
                               book={ book }
-                              updateBooks={this.props.updateBooks}
+                              updateBooks={this.updateBooks}
                               books={this.props.books}
                               bookShelves={this.props.bookShelves}
                               bookShelf={this.props.bookShelf}

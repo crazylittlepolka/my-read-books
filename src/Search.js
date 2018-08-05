@@ -8,9 +8,8 @@ class Search extends Component {
   state = {
 
     query: '',
-    matchingBooks: [],
-    shelves: [],//
-    
+    matchingBooks: []
+        
   }
 
 
@@ -77,11 +76,19 @@ class Search extends Component {
                   this.state.matchingBooks
                   .map((matchingBook, id) => {
 
-                  //let shelfId=this.state.bookshelf.id;
+                  const shelfToCompare=this.props.booksFromListBooks.shelf;
+                  const listBooks = this.props.booksFromListBooks;
+
+                  listBooks.map(listBook => (
+
+                    matchingBook.id === listBook.id
+                    ? defaultShelf = shelfToCompare
+                    : ''
+                    ))
 
                     //for( let i = 0; i < this.props.books.length; i++) {
 
-                    //  if (matchingBook.id === this.props.shelfId) {
+                     // if (matchingBook.id === this.props.book.id) {
                     //    defaultShelf = shelfId;
                     //  } else {
                     //    defaultShelf = '';

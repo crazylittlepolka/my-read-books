@@ -7,7 +7,8 @@ import './App.css'
 
 class BooksApp extends React.Component {
   state = {
-    books: []
+    books: [],
+    listDataFromListBooks: []
     
   }
 
@@ -24,7 +25,11 @@ updateBooks = (book, shelf) => {
     this.setState({ books })
   })
 }
-
+//
+getingListBooks = (dataFromListBooks) => {
+  this.setState({listDataFromListBooks: dataFromListBooks})
+}
+//
   render() {
     
     return (
@@ -33,6 +38,7 @@ updateBooks = (book, shelf) => {
             <ListBooks 
               books={this.state.books}
               updateBooks={this.updateBooks}
+              sendingData={this.getingListBooks}//
             />
           )}           
         />
@@ -41,7 +47,8 @@ updateBooks = (book, shelf) => {
             <Search 
               books={this.state.books}
               book={this.state.book}
-              updateBooks={this.updateBooks}              
+              updateBooks={this.updateBooks}
+              booksFromListBooks={this.state.listDataFromListBooks}
             />
           )}
         />
