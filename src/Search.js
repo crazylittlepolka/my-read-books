@@ -8,8 +8,11 @@ class Search extends Component {
   state = {
 
     query: '',
-    matchingBooks: []
+    matchingBooks: [],
+    shelves: [],//
+    
   }
+
 
   displayQuery = (query) => {
     this.setState(
@@ -21,15 +24,38 @@ class Search extends Component {
     if (this.state.query) {
       BooksAPI.search(this.state.query)
       .then(theSearch => {
-        if (!theSearch) {
-          this.setState({metchingBooks: []})
-        } else {
+        if (!theSearch.error) {
+
+
+          const matchingBook = this.state.matchingBook;
+          
+
+          theSearch
+          .map((book, matchingBook) => {
+
+            if(book.id === matchingBook.id) {
+
+
+            }
+          })
+
+
           this.setState({matchingBooks: theSearch})
+
+
+
+          
+        } else {
+          this.setState({metchingBooks: []})         
         }
       })
     }
   }
   render() {
+
+    let defaultShelf = 'none';
+
+
       return (
            <div className="search-books">
             <div className="search-books-bar">
@@ -49,19 +75,37 @@ class Search extends Component {
               <ol className="books-grid">
                 {
                   this.state.matchingBooks
-                  .map((book, i) => {
-                    let shelf = ''
+                  .map((matchingBook, id) => {
+
+                  //let shelfId=this.state.bookshelf.id;
+
+                    //for( let i = 0; i < this.props.books.length; i++) {
+
+                    //  if (matchingBook.id === this.props.shelfId) {
+                    //    defaultShelf = shelfId;
+                    //  } else {
+                    //    defaultShelf = '';
+                    //  }
+                    //}
+
+                    //this.props.books.map(theBook => (
+                      //theBook.id === matchingBook.id
+                      //? defaultShelf = theBook.defaultShelf
+                      //: ''
+                      //))  
+
 
                     return (
                       <Book 
-                        key={i}
-                        book={book}
+                        key={id}
+                        book={matchingBook}
                         updateBooks = {this.updateBooks}
                         books={this.state.matchingBooks}
                         bookShelves={this.props.bookShelves}
-                        bookShelf={shelf}
-                      />
-                      )
+                        defaultShelf={defaultShelf}
+
+                     />
+                    )
                   })
                 }
               </ol>
