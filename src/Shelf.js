@@ -4,33 +4,31 @@ import Book from './Book'
 class Shelf extends Component {
 
   render() {
-    //console.log(this.props.shelves[1].id)
-        //console.log(this.props.books)
+    console.log(this.props.books)
       return (
       
-                  <div className="bookshelf-books">
-                    <ol className="books-grid">
-                  {
-                    this.props.books
-                    .filter(book => book.shelf === this.props.bookShelf.id)
-                    .map(book => (
-                      <li key={book.id}>
-                        <Book
-                          book={ book }
-                          updateBooks={this.props.updateBooks}
-                          books={this.props.books}
-                          shelves={this.props.shelves}
-                          bookShelf={this.props.bookShelf}
-                        />
-                      </li>
-                  ))
-                  }
-          
+        <div className="bookshelf-books">
+          <ol className="books-grid">
+            
+            {
+              this.props.books
+              .filter(book => book.shelf === this.props.bookShelf.id)
+              .map(book => (
 
-          
-          
-                    </ol>
-                  </div>
+                  <li key={book.id}>
+                    <Book 
+                      book = { book }
+                      books = { this.props.books }
+                      bookShelves = { this.props.bookShelves }
+                      bookShelf = { this.props.bookShelf}
+                      updateBooks={this.props.updateBooks}
+                    />
+                  </li>
+                ))
+            }
+         
+          </ol>
+        </div>
           
         )
     }

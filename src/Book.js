@@ -2,17 +2,7 @@ import React, { Component } from 'react'
 
 class Book extends Component {
   
-/*state = {
-    shelf: 'none'
-}
 
-componentDidMount() {
-  const { book } = this.props;
-  if(book.shelf) {
-    this.setState({ shelf: book.state})
-  }
-}
-  */
   render() {
 
       return (                        
@@ -22,20 +12,22 @@ componentDidMount() {
                 <div className="book-shelf-changer">
 
                     <select
-                        value={this.props.bookShelf.id}
-                        ///value={
-                        //this.props.shelf
-                        //? this.props.shelf.id
-                        // : 'none'
-                        //}
+                        
+                        value={
+                          this.props.book.shelf
+                          ? this.props.book.shelf
+                          : 'none'
+                          }
                         onChange={e => this.props.updateBooks(
                           this.props.book, e.target.value)}
                     >
+
                         <option value="move" disabled>Move to...</option>
                         <option value="currentlyReading">Currently Reading</option>
                         <option value="wantToRead">Want to Read</option>
                         <option value="read">Read</option>
                         <option value="none">None</option>
+                        
                     </select>
 
                 </div>

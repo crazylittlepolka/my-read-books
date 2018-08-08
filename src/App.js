@@ -8,7 +8,6 @@ import './App.css'
 class BooksApp extends React.Component {
   state = {
     books: []
-    
   }
 
 componentDidMount() {
@@ -20,29 +19,29 @@ componentDidMount() {
 updateBooks = (book, shelf) => {
   BooksAPI.update(book, shelf);
 
-    BooksAPI.getAll().then((books) => {
+  BooksAPI.getAll().then((books) => {
     this.setState({ books })
-    })
+  })
 }
 
   render() {
-    console.log(this.state.books);
+    
     return (
       <div className="app">
         <Route exact path="/" render={() => (
-        <ListBooks 
-          books={this.state.books}
-          updateBooks={this.updateBooks}
-        />
-      )}           
-       />
+            <ListBooks 
+              books={this.state.books}
+              updateBooks={this.updateBooks}
+            />
+          )}           
+         />
        
         <Route path="/search" render={({history}) => (
-          <Search 
-            updateBooks={this.updateBooks}
-            books={this.state.books}
-            book={this.state.book}
-          />
+            <Search 
+              updateBooks={this.updateBooks}
+              books={this.state.books}
+              book={this.state.book}
+            />
           )}
           />
 
