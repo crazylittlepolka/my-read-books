@@ -20,24 +20,27 @@ class Book extends Component {
                         onChange={ this.updateShelf }
                     >
 
-                        <option value="move" disabled>Move to...</option>
-                        <option value="currentlyReading">Currently Reading</option>
-                        <option value="wantToRead">Want to Read</option>
-                        <option value="read">Read</option>
-                        <option value="none">None</option>
-                        
-                    </select>
+                        <optgroup label="Move to ...">>
 
+                          {
+                            this.props.bookShelves.map(shelf => (
+                              <option value={ shelf.id } key={ shelf.id }>{ shelf.name }</option>
+                            ))
+                          }
+                          
+                          <option value="none">None</option>
+                        </optgroup>
+                    </select>
                 </div>
             </div>
 
             <div className="book-title">{this.props.book.title}</div>
-            <div className="book-authors">{this.props.book.authors}</div>
 
+            <div className="book-authors">{this.props.book.authors}</div>
           </div>
         
         )
     }
 }
 
-export default Book
+export default Book;
