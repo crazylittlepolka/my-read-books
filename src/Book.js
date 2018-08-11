@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 
 class Book extends Component {
   
+  updateShelf = e => {
+    this.props.updateBooks(this.props.book, e.target.value)
+  }
 
   render() {
 
@@ -13,13 +16,8 @@ class Book extends Component {
 
                     <select
                         
-                        value={
-                          this.props.book.shelf
-                          ? this.props.book.shelf
-                          : 'none'
-                          }
-                        onChange={e => this.props.updateBooks(
-                          this.props.book, e.target.value)}
+                        value={ this.props.book.shelf ? this.props.book.shelf : 'none' }
+                        onChange={ this.updateShelf }
                     >
 
                         <option value="move" disabled>Move to...</option>
