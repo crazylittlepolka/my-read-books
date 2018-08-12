@@ -39,7 +39,7 @@ class Search extends Component {
   }
 
   render() {
-
+    console.log(this.props.books)
       return (
         <div className="search-books">
 
@@ -64,19 +64,23 @@ class Search extends Component {
               <ol className="books-grid">
 
                 {
-                  this.state.matchingBooks
-                    .map( (book, id) => {
-
-                      let bookShelf 
+                  this.state.matchingBooks.map((matchingBook, id) => {
+                    
+                    let displayedShelf = 'none';
+                    
+                    this.props.books.map(book => (
+                      book.id === matchingBook.id ? displayedShelf = book.shelf : ''))
+                      
 
                       return (
                         <Book
-                          key={id}
-                          book={ book }
+                          key={ id }
+                          book={ matchingBook }
+                          shelf={ displayedShelf}
                           updateBook={ this.props.updateBook }
-                          books={this.state.matchingBooks}
-                          bookShelves={this.props.bookShelves}
-                          bookShelf={bookShelf}
+                          books={ this.state.matchingBooks }
+                          bookShelves={ this.props.bookShelves }
+                          
                         />
                       )
                     }                        
