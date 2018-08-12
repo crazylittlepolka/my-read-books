@@ -12,10 +12,12 @@ class Search extends Component {
 
   displayQuery = (query) => {
     this.setState(
-      { query: query }, this.showSearch
+      { query }, this.showSearch
     )
   }
   
+
+
   showSearch = (query) => {
 
     if (this.state.query) {
