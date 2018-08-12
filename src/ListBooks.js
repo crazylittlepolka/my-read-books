@@ -3,25 +3,7 @@ import Shelf from './Shelf'
 import { Link } from 'react-router-dom'
 
 class ListBooks extends Component {
-  
-  //state = {
-    
-//    bookShelves: [
-//      {
- //       "id":"currentlyReading",
- //       "name":"Currently Reading"
-//      },
-//      {
-//        "id":"wantToRead",
-  //      "name":"Want to Read"
-    //  },
-      //{
-      //  "id":"read",
-//        "name":"Read"
-  //    }
-  //  ]
-  //}
-
+ 
   render() {
  
     return (
@@ -34,23 +16,22 @@ class ListBooks extends Component {
         <div className="list-books-content">
                   
           {
-            this.props.bookShelves.map(bookShelf => (
+            this.props.bookShelves.map(bookShelf => {
+              const shelfBooks = this.props.books.filter(book => book.shelf === bookShelf.id);
 
+              return (
+                <Shelf
+                  key= { bookShelf.id }
+                  books= { shelfBooks }
+                  bookShelves={ this.props.bookShelves }
+                  updateBook={ this.props.updateBook }
+                  bookShelf={ bookShelf}
+                />
 
-              <div key={bookShelf.id} className="bookshelf">
-                <div key={bookShelf.id}>
-                  <h2 className="bookshelf-title">{bookShelf.name}</h2>
-                    <Shelf 
-                      books={this.props.books}
-                      bookShelves={ this.props.bookShelves }
-                      updateBook={this.props.updateBook}
-                      bookShelf={bookShelf}
-                    />
-                </div>
-
-              </div>
-            ))
+              )
+            })
           }
+
         
           <div className="open-search">
             <Link to='/search'>Add a book</Link>
