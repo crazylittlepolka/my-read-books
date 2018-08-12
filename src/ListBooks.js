@@ -4,23 +4,23 @@ import { Link } from 'react-router-dom'
 
 class ListBooks extends Component {
   
-  state = {
+  //state = {
     
-    bookShelves: [
-      {
-        "id":"currentlyReading",
-        "name":"Currently Reading"
-      },
-      {
-        "id":"wantToRead",
-        "name":"Want to Read"
-      },
-      {
-        "id":"read",
-        "name":"Read"
-      }
-    ]
-  }
+//    bookShelves: [
+//      {
+ //       "id":"currentlyReading",
+ //       "name":"Currently Reading"
+//      },
+//      {
+//        "id":"wantToRead",
+  //      "name":"Want to Read"
+    //  },
+      //{
+      //  "id":"read",
+//        "name":"Read"
+  //    }
+  //  ]
+  //}
 
   render() {
  
@@ -34,13 +34,15 @@ class ListBooks extends Component {
         <div className="list-books-content">
                   
           {
-            this.state.bookShelves.map(bookShelf => (
+            this.props.bookShelves.map(bookShelf => (
+
+
               <div key={bookShelf.id} className="bookshelf">
                 <div key={bookShelf.id}>
                   <h2 className="bookshelf-title">{bookShelf.name}</h2>
                     <Shelf 
                       books={this.props.books}
-                      bookShelves={this.state.bookShelves}
+                      bookShelves={ this.props.bookShelves }
                       updateBook={this.props.updateBook}
                       bookShelf={bookShelf}
                     />

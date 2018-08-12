@@ -13,6 +13,21 @@ class BooksApp extends React.Component {
     books: []
   }
 
+  bookShelves = [
+    {
+      "id":"currentlyReading",
+      "name":"Currently Reading"
+    },
+    {
+      "id":"wantToRead",
+      "name":"Want to Read"
+    },
+    {
+      "id":"read",
+      "name":"Read"
+    }
+  ]
+
   componentDidMount() {
     this.getData()
   }
@@ -34,7 +49,8 @@ class BooksApp extends React.Component {
     return (
       <div className="app">
         <Route exact path="/" render={() => (
-            <ListBooks 
+            <ListBooks
+              bookShelves ={ this.bookShelves} 
               books={this.state.books}
               updateBook={ this.updateBook }
             />
@@ -42,7 +58,8 @@ class BooksApp extends React.Component {
          />
        
         <Route path="/search" render={({history}) => (
-            <Search 
+            <Search
+              bookShelves={ this.bookShelves } 
               updateBook={ this.updateBook }
               books={this.state.books}
               book={this.state.book}
