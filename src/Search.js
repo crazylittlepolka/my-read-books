@@ -72,11 +72,10 @@ class Search extends Component {
                         <Book
                           key={ id }
                           book={ matchingBook }
-                          shelf={ displayedShelf}
+                          displayedShelf={ displayedShelf}
                           updateBook={ this.props.updateBook }
                           books={ this.state.matchingBooks }
-                          bookShelves={ this.props.bookShelves }
-                          
+                          bookShelves={ this.props.bookShelves }                          
                         />
                       )
                     }                        

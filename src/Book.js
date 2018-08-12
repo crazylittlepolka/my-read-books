@@ -16,7 +16,7 @@ class Book extends Component {
 
                     <select
                         
-                        value={ this.props.book.shelf ? this.props.book.shelf : 'none' }
+                        value={ this.props.book.shelf ? this.props.book.shelf : this.props.displayedShelf }
                         onChange={ this.updateShelf }
                     >
 
