@@ -21,20 +21,16 @@ class Search extends Component {
     if (this.state.query) {
 
         BooksAPI.search(this.state.query)
-        .then(theSearch => {
+        .then(matchingBooks => {
 
-            if (!theSearch) {
-              
-              this.setState({matchingBooks: []})
-              
-              } else {
-                
-                this.setState({matchingBooks: theSearch})
-                
-              }
-                            
+          if (!matchingBooks.error) {
+            this.setState({ matchingBooks })
+          } else {
+            this.setState({ matchingBooks: [] })
           }
-        )
+        })
+    } else {
+      this.setState({ matchingBooks: [] })
     }
   }
 
