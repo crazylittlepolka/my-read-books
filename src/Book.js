@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class Book extends Component {
   
   updateShelf = e => {
-    this.props.updateBooks(this.props.book, e.target.value)
+    this.props.updateBook(this.props.book, e.target.value)
   }
 
   render() {

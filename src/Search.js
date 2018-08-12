@@ -73,7 +73,7 @@ class Search extends Component {
                         <Book
                           key={id}
                           book={ book }
-                          updateBooks={this.updateBooks}
+                          updateBook={ this.updateBook }
                           books={this.state.matchingBooks}
                           bookShelves={this.props.bookShelves}
                           bookShelf={bookShelf}

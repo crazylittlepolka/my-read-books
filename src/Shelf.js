@@ -21,7 +21,7 @@ class Shelf extends Component {
                       books = { this.props.books }
                       bookShelves = { this.props.bookShelves }
                       bookShelf = { this.props.bookShelf}
-                      updateBooks={this.props.updateBooks}
+                      updateBook={ this.props.updateBook }
                     />
                   </li>
                 ))

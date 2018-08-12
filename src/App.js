@@ -17,7 +17,7 @@ class BooksApp extends React.Component {
     this.getData()
   }
 
-  updateBooks = (book, shelf) => {
+  updateBook = (book, shelf) => {
     BooksAPI.update(book, shelf);
 
     this.getData()
@@ -36,14 +36,14 @@ class BooksApp extends React.Component {
         <Route exact path="/" render={() => (
             <ListBooks 
               books={this.state.books}
-              updateBooks={this.updateBooks}
+              updateBook={ this.updateBook }
             />
           )}           
          />
        
         <Route path="/search" render={({history}) => (
             <Search 
-              updateBooks={this.updateBooks}
+              updateBook={ this.updateBook }
               books={this.state.books}
               book={this.state.book}
             />

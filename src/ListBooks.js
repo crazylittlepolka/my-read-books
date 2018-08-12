@@ -41,7 +41,7 @@ class ListBooks extends Component {
                     <Shelf 
                       books={this.props.books}
                       bookShelves={this.state.bookShelves}
-                      updateBooks={this.props.updateBooks}
+                      updateBook={this.props.updateBook}
                       bookShelf={bookShelf}
                     />
                 </div>
