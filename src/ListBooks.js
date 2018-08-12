@@ -27,7 +27,6 @@ class ListBooks extends Component {
                   updateBook={ this.props.updateBook }
                   bookShelf={ bookShelf}
                 />
-
               )
             })
           }
@@ -35,8 +34,7 @@ class ListBooks extends Component {
         
           <div className="open-search">
             <Link to='/search'>Add a book</Link>
-          </div>
-      
+          </div>      
         </div>
       </div>
     )

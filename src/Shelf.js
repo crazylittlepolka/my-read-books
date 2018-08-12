@@ -4,35 +4,32 @@ import Book from './Book'
 class Shelf extends Component {
 
   render() {
-    console.log(this.props.books)
+    return (
+      <div className="bookshelf">
+        <h2 className="bookshelf-title">{ this.props.bookShelf.name }</h2>
 
-      return (
-        <div className="bookshelf">
-          <h2 className="bookshelf-title">{ this.props.bookShelf.name }</h2>
-
-          <div className="bookshelf-books">
-            <ol className="books-grid">
+        <div className="bookshelf-books">
+          <ol className="books-grid">
               
-              {
-                this.props.books.map(book => (
+            {
+              this.props.books.map(book => (
 
-                    <li key={book.id}>
-                      <Book 
-                        book = { book }
-                        books = { this.props.books }
-                        bookShelves = { this.props.bookShelves }
-                        shelf = { this.props.bookShelf}
-                        updateBook={ this.props.updateBook }
-                      />
-                    </li>
-                  ))
-              }
-           
-            </ol>
-          </div>
-        </div>          
-        )
-    }
+                  <li key={book.id}>
+                    <Book 
+                      book = { book }
+                      books = { this.props.books }
+                      bookShelves = { this.props.bookShelves }
+                      shelf = { this.props.bookShelf}
+                      updateBook={ this.props.updateBook }
+                    />
+                  </li>
+                ))
+            }           
+          </ol>
+        </div>
+      </div>          
+    )
+  }
 }
 
 export default Shelf;
