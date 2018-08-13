@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 
 class Book extends Component {
+  
+  updateShelf = e => {
+    this.props.updateBook(this.props.book, e.target.value)
+  }
+
   render() {
+<<<<<<< HEAD
       return (                        
         <div className="book">
           <div className="book-top">
@@ -14,7 +20,29 @@ class Book extends Component {
                   value = { this.props.bookShelf.id}
                   onChange = {e => this.props.updateBooks(
                     this.props.book, e.target.value)}
+||||||| merged common ancestors
+      return (                        
+                  <div className="book">
+                          <div className="book-top">
+                            <div className="book-cover" style={{ width: 128, height: 174, backgroundImage: `url("${this.props.book.imageLinks.thumbnail}")` }}></div>
+                            <div className="book-shelf-changer">
+                              <select
+                value={this.props.bookShelf.id}
+=======
+
+    return (                        
+      <div className="book">
+        <div className="book-top">
+          <div className="book-cover" style={{ width: 128, height: 174, backgroundImage: `url("${this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : ''}")` }}></div>
+            <div className="book-shelf-changer">
+
+                <select
+                    
+                    value={ this.props.book.shelf ? this.props.book.shelf : this.props.displayedShelf }
+                    onChange={ this.updateShelf }
+>>>>>>> search
                 >
+<<<<<<< HEAD
                   <option value="move" disabled>Move to...</option>
                   <option value="currentlyReading">Currently Reading</option>
                   <option value="wantToRead">Want to Read</option>
@@ -32,5 +60,51 @@ class Book extends Component {
         
         )
     }
+||||||| merged common ancestors
+                                <option value="move" disabled>Move to...</option>
+                                <option value="currentlyReading">Currently Reading</option>
+                                <option value="wantToRead">Want to Read</option>
+                                <option value="read">Read</option>
+                                <option value="none">None</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div className="book-title">title</div>
+                          <div className="book-authors">authors</div>
+                        </div>
+        
+        )
+    }
+=======
+
+                    <optgroup label="Move to ...">>
+
+                      {
+                        this.props.bookShelves.map(shelf => (
+                          <option value={ shelf.id } key={ shelf.id }>{ shelf.name }</option>
+                        ))
+                      }
+                      
+                      <option value="none">None</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+
+        <div className="book-title">{this.props.book.title}</div>
+
+        <div className="book-authors">{this.props.book.authors}</div>
+      </div>        
+    )
+  }
+>>>>>>> search
 }
+<<<<<<< HEAD
 export default Book
+||||||| merged common ancestors
+
+export default Book
+=======
+
+export default Book;
+>>>>>>> search
